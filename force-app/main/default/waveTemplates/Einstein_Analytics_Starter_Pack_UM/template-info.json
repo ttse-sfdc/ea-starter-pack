@@ -3,7 +3,7 @@
   "label" : "Einstein Analytics Starter Pack 未管理",
   "name" : "Einstein_Analytics_Starter_Pack_UM",
   "namespace" : "ea_starter_pack",
-  "description" : "",
+  "description" : "Actionable BI starting with ”PDCA”",
   "assetVersion" : 47.0,
   "variableDefinition" : "variables.json",
   "uiDefinition" : "ui.json",

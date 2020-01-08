@@ -1,5 +1,13 @@
 {
-  "orgName": "ttse company",
+  "orgName": "EA Starter Pack SFDX",
+  "description": "Scratch org for development of EA Starter Pack template",
   "edition": "Developer",
-  "features": ["DevelopmentWave"]
+  "country": "US",
+  "adminEmail": "ttse@salesforce.com",
+  "features" : ["DevelopmentWave"],
+  "settings": {
+        "lightningExperienceSettings": {
+            "enableS1DesktopEnabled": true
+        }
+    }
 }

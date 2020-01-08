@@ -1,0 +1,21 @@
+UserRole.Name,External_Id__c,FirstName,LastName,Alias,Email,TimeZoneSidKey,Profile.Name,LocaleSidKey,LanguageLocaleKey,EmailEncodingKey,UserPermissionsSFContentUser,Username
+West Sales,W_Sales_User.3,Kylie,Obrien,kobrien,kobrien@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,kobrien@sdodata.ac.20191104160815
+West Sales,W_Sales_User.4,Lisa,Baker,lbaker,lbaker@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,lbaker@sdodata.ac.20191104160815
+West Sales,W_Sales_User.1,Amanda,Miller,amiller,amiller@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,amiller@sdodata.ac.20191104160815
+West Sales,W_Sales_User.6,Melissa,Preston,mpreston,mpreston@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,mpreston@sdodata.ac.20191104160815
+East Sales,W_Sales_User.15,Randy,Larson,rlarson,rlarson@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,rlarson@sdodata.ac.20191104160815
+Central Sales,W_Sales_User.9,Deanna,Dunlap,ddunlap,ddunlap@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,ddunlap@sdodata.ac.20191104160815
+East Sales,W_Sales_User.14,Brian,Joseph,bjoseph,bjoseph@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,bjoseph@sdodata.ac.20191104160815
+East Sales,W_Sales_User.13,James,Mckenzie,jmckenzi,jmckenzi@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,jmckenzi@sdodata.ac.20191104160815
+East Sales,W_Sales_User.12,Melissa,Williams,mwilliam,mwilliam@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,mwilliam@sdodata.ac.20191104160815
+East Sales,W_Sales_User.17,Michael,Campos,mcampos,mcampos@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,mcampos@sdodata.ac.20191104160815
+East Sales,W_Sales_User.16,William,Johnston,wjohnsto,wjohnsto@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,wjohnsto@sdodata.ac.20191104160815
+Central Sales,W_Sales_User.11,Teresa,Wolf,twolf,twolf@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,twolf@sdodata.ac.20191104160815
+West Sales,W_Sales_User.5,Michele,Davis,mdavis,mdavis@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,mdavis@sdodata.ac.20191104160815
+West Sales,W_Sales_User.2,Jessica,Walker,jwalker,jwalker@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,jwalker@sdodata.ac.20191104160815
+Central Sales,W_Sales_User.8,Andrea,Clark,aclark,aclark@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,aclark@sdodata.ac.20191104160815
+Central Sales,W_Sales_User.10,Alexis,Oconnor,aoconnor,aoconnor@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,aoconnor@sdodata.ac.20191104160815
+Central Sales,W_Sales_User.7,Lisa,Harrell,lharrell,lharrell@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,lharrell@sdodata.ac.20191104160815
+RVP West,W_Sales_User.M.18,David,Park,dpark,dpark@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,dpark@sdodata.ac.20191104160815
+RVP East,W_Sales_User.M.19,Carlos,Lowery,clowery,clowery@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,clowery@sdodata.ac.20191104160815
+RVP Central,W_Sales_User.M.20,Steve,Reyes,sreyes,sreyes@sdodata.ac,America/Los_Angeles,Standard User,en_US,en_US,ISO-8859-1,false,sreyes@sdodata.ac.20191104160815
