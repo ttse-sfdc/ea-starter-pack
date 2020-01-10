@@ -1,5 +1,5 @@
 {
-  "name" : "EA_Starter_Pack_5_UM1_tp",
+  "name" : "EA_Starter_Pack_5_tp",
   "label" : "5.集客(EA Starter Pack)",
   "folder" : {
     "id" : "${App.Folder.Id}"
@@ -20,13 +20,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "Name"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "campaign.Name"
@@ -38,13 +38,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "IsActive"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "campaign.IsActive"
@@ -56,13 +56,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "Status"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "campaign.Status"
@@ -74,13 +74,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "Type"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "campaign.Type"
@@ -92,13 +92,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "StartDate"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "campaign.StartDate"
@@ -111,7 +111,7 @@
     "filters" : [
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -122,7 +122,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -133,7 +133,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -144,7 +144,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -155,7 +155,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -2408,7 +2408,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2470,7 +2470,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2730,7 +2730,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2826,7 +2826,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2914,7 +2914,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}"
           }
         ],
         "isGlobal" : false,
@@ -3002,7 +3002,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_CampaignMember.Name}"
           }
         ],
         "isGlobal" : false,
@@ -3090,7 +3090,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
           }
         ],
         "isGlobal" : false,
@@ -3316,7 +3316,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Campaign_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Campaign.Name}"
           }
         ],
         "isGlobal" : false,

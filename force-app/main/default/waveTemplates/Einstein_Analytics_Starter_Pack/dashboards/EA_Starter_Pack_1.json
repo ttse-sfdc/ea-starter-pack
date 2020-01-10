@@ -1,5 +1,5 @@
 {
-  "name" : "EA_Starter_Pack_1_UM1_tp",
+  "name" : "EA_Starter_Pack_1_tp",
   "label" : "1.目次(EA Starter Pack)",
   "folder" : {
     "id" : "${App.Folder.Id}"
@@ -20,19 +20,19 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "Industry"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Account.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "Industry"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "account.Industry"
@@ -44,13 +44,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "LeadSource"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "LeadSource"
@@ -62,19 +62,19 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "NumberOfEmployees"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Account.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "NumberOfEmployees"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "account.NumberOfEmployees"
@@ -86,13 +86,13 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "opportunity.Type"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "Type"
@@ -104,31 +104,31 @@
       {
         "fields" : [
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Lead.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "CreatedDate"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Account.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "CreatedDate"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "CreatedDate"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Case_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Case.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "CreatedDate"
           },
           {
-            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Activity_tp.Name}",
+            "dataSourceName" : "${App.Datasets.SFDC_EA_SP_Activity.Name}",
             "dataSourceNamespace" : "${Org.Namespace}",
             "dataSourceType" : "saql",
             "fieldName" : "ActivityDate"
@@ -141,7 +141,7 @@
     "filters" : [
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Lead.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -152,7 +152,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Account.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -163,7 +163,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Account.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -174,7 +174,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -185,7 +185,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Lead.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -197,7 +197,7 @@
       },
       {
         "dataset" : {
-          "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+          "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
         },
         "dependent" : true,
         "fields" : [
@@ -2319,7 +2319,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Case_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Case.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2454,7 +2454,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2543,7 +2543,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Account.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2668,7 +2668,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2817,7 +2817,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -2952,7 +2952,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -3041,7 +3041,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Account_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Account.Name}"
           }
         ],
         "isGlobal" : false,
@@ -3129,7 +3129,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Activity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Activity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4074,7 +4074,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4163,7 +4163,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Lead.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4251,7 +4251,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Lead.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4376,7 +4376,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Activity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Activity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4501,7 +4501,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Lead.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4633,7 +4633,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4729,7 +4729,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Opportunity.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4862,7 +4862,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Case_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Case.Name}"
           }
         ],
         "isGlobal" : false,
@@ -4950,7 +4950,7 @@
         "broadcastFacet" : true,
         "datasets" : [
           {
-            "name" : "${App.Datasets.SFDC_EA_SP_Lead_tp.Name}"
+            "name" : "${App.Datasets.SFDC_EA_SP_Lead.Name}"
           }
         ],
         "isGlobal" : false,
