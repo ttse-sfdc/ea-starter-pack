@@ -1,0 +1,107 @@
+{
+  "workflowDefinition": {
+    "sfdcDigest_Opportunity": {
+      "action": "sfdcDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "OwnerId"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "StageName"
+          },
+          {
+            "name": "Amount"
+          },
+          {
+            "name": "CloseDate"
+          }
+        ],
+        "object": "Opportunity"
+      }
+    },
+    "sfdcDigest_User": {
+      "action": "sfdcDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Name"
+          },
+          {
+            "name": "Id"
+          }
+        ],
+        "object": "User"
+      }
+    },
+    "sfdcDigest_Account": {
+      "action": "sfdcDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "BillingCity"
+          }
+        ],
+        "object": "Account"
+      }
+    },
+    "augment_Opportunity_Account": {
+      "action": "augment",
+      "parameters": {
+        "right_key": [
+          "Id"
+        ],
+        "left": "sfdcDigest_Opportunity",
+        "left_key": [
+          "AccountId"
+        ],
+        "right_select": [
+          "Name",
+          "BillingCity"
+        ],
+        "right": "sfdcDigest_Account",
+        "relationship": "AccountId",
+        "operation": "LookupSingleValue"
+      }
+    },
+    "augment_Opportunity_Account_User": {
+      "action": "augment",
+      "parameters": {
+        "right_key": [
+          "Id"
+        ],
+        "left": "augment_Opportunity_Account",
+        "left_key": [
+          "OwnerId"
+        ],
+        "right_select": [
+          "Name",
+          "Id"
+        ],
+        "right": "sfdcDigest_User",
+        "relationship": "OpportunityOwner",
+        "operation": "LookupSingleValue"
+      }
+    },
+    "register_Opportunities (Test App)": {
+      "action": "sfdcRegister",
+      "parameters": {
+        "name": "Opportunities (Test App)",
+        "alias": "Opportunities_Test_App",
+        "source": "augment_Opportunity_Account_User"
+      }
+    }
+  }
+}
