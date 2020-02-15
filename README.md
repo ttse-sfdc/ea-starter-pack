@@ -1,5 +1,4 @@
 # Einstein Analytics Starter Pack
-
 This repo contains the source for the Einstein Analytics Start Pack template of the dashboards developed by Yuji Yamamoto. 
 
 The structure of this repo and scripts can also be used as a template for Einstein Analytics Template development.
@@ -33,6 +32,6 @@ Before trying the steps detailed here, you need the following:
 6. Sync code with git
 
 ### Package Deployment Model (only if releasing through packaging)
-1. Use `sfdx force:auth:web:login --setalias easp-dev` to add your dev org used for managing the package for this template (First time only)
-2. Use the commands `SFDX: Deploy Source to Org` (VS Code) or `sfdx force:source:deploy -u easp-dev -p force-app/main/default/waveTemplates/Einstein_Analytics_Starter_Pack` (Salesforce CLI) to deploy the latest changes to Dev org for packaging
+1. Use `sfdx force:auth:web:login --setalias [ALIAS OF CHOICE]` to add your dev org used for managing the package for this template (First time only)
+2. Use the commands `SFDX: Deploy Source to Org` (VS Code) or `sfdx force:source:deploy -u [ALIAS OF CHOICE] -p force-app/main/default/waveTemplates/[TEMPLATE NAME]` (Salesforce CLI) to deploy the latest changes to Dev org for packaging
 3. Log into Dev org and create/update package with template assets
