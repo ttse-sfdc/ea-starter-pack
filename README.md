@@ -24,11 +24,11 @@ Before trying the steps detailed here, you need the following:
 1. Clone this repo: https://github.com/ttse-sfdc/ea-starter-pack.git
 2. Run `./orgInit.sh` to create a new Scratch Org with assets from repo. (Scratch Orgs are defaulted to **expire in 1 day**, override with argument `./orgInit.sh 7`)
 3. Do your development in the scratch org or VS Code.
-    a. Edit dashboards in the org and pull source to local (see step 4a below)
-    b. Edit template metadata in VS Code and push source to scratch org and update (see step 4b below)
+    1. Edit dashboards in the org and pull source to local (see step 4i below)
+    2. Edit template metadata in VS Code and push source to scratch org and update (see step 4ii below)
 4. Use the commands 
-    a. `SFDX: Push Source to Org` (VS Code) or `sfdx force:source:push` (Salesforce CLI) to push changes from local into the Scratch Org. For example changes to template metadata (i.e. template-info.json)
-    b. `SFDX: Pull Source from Org` (VS Code) or `sfdx force:source:pull` (Salesforce CLI) to pull changes down from Scratch Org to local. For example, dashboard edits.
+    1. `SFDX: Push Source to Org` (VS Code) or `sfdx force:source:push` (Salesforce CLI) to push changes from local into the Scratch Org. For example changes to template metadata (i.e. template-info.json)
+    2. `SFDX: Pull Source from Org` (VS Code) or `sfdx force:source:pull` (Salesforce CLI) to pull changes down from Scratch Org to local. For example, dashboard edits.
 5. Run `./updateTemplate.sh` to update template with latest changes
 6. Sync code with git
 
