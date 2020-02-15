@@ -1,17 +1,51 @@
-#temp directory for working files
+##################################################################################################################
+# Script to spin up Scratch Org and initialize the org with data for Template being developed
+# Created by: Terrence Tse, ttse@salesforce.com
+# Last Updated: Feb 14, 2020
+##################################################################################################################
+
+# constants
+## API name of template
+TEMPLATE_API_NAME="Einstein_Analytics_Starter_Pack"
+
+## Default org duration to 1 day if argument not set
+ORG_DURATION=1
+
+## timestamp
+TIMESTAMP=$(date "+%Y%m%d%H%M%S")
+
+## echo colors
+ERROR='\033[0;31m' # Red
+WARN='\033[1;33m' # Yellow
+MSG='\033[1;36m' # Light Cyan
+NC='\033[0m' # No Color
+
+# override org duration if argument exists
+if [ "$#" -eq  "0" ]
+then
+    echo "${MSG}[INFO] No arguments specified${NC}"
+else
+    ORG_DURATION=$1
+fi
+
+# temp directory for working files
+echo "${MSG}[INFO] Creating temp folder...${NC}"
 mkdir sfdx_temp
 
-#create scratch org
-sfdx force:org:create -f config/project-scratch-def.json -s -d 1 -w 60
+# create scratch org
+echo "${MSG}[INFO] Creating Scratch Org with Duration: $ORG_DURATION Day(s)...${NC}"
+sfdx force:org:create -f config/project-scratch-def.json -s -d $ORG_DURATION -w 60
 
-#push source
+# push source
+echo "${MSG}[INFO] Pushing source...${NC}"
 sfdx force:source:push -f
 
-## Load Demo/Testing Data
+# load demo/testing Data
+echo "${MSG}[INFO] Loading Demo/Testing Data...${NC}"
 #prep unique Username in User csv
-sed "s/{TIMESTAMP}/$(date "+%Y%m%d%H%M%S")/g" data/core/User.csv > sfdx_temp/User_Load.csv
+sed "s/{TIMESTAMP}/$TIMESTAMP/g" data/core/User.csv > sfdx_temp/User_Load.csv
 
-#load csvs into core objects
+## load csvs into core objects
 sfdx force:data:bulk:upsert -s UserRole -f data/core/UserRole.csv -i Name -w 2
 sfdx force:data:bulk:upsert -s User -f sfdx_temp/User_Load.csv -i External_Id__c -w 2
 sfdx force:data:bulk:upsert -s Account -f data/core/Account.csv -i External_Id__c -w 5
@@ -21,16 +55,35 @@ sfdx force:data:record:create -s Task -v "Subject='Sample Task'"
 sfdx force:data:record:create -s Event -v "Subject='Sample Call' DurationInMinutes='1' ActivityDateTime='2019-01-01'"
 
 sfdx force:data:record:create -s Case -v "Subject='Sample Case'"
+
 sfdx force:data:record:create -s Campaign -v "Name='Sample Campaign'"
+
 #sfdx force:data:record:create -s CampaignMember -v "LastName='Sample CampaignMember'"
+
 sfdx force:data:record:create -s Lead -v "LastName='Sample Lead' Company='Sample Company'"
+
 sfdx force:data:record:create -s Contact -v "LastName='Sample Contact'"
 
-#clean up
+# clean up
+echo "${MSG}[INFO] Clean up...${NC}"
 rm -rf sfdx_temp
 
-sfdx force:user:password:generate
-sfdx force:user:display
+# get template ID
+TEMPLATE_ID="$(sfdx analytics:template:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f2)"
 
-#open org
+# create MASTER app
+echo "${MSG}[INFO] Creating App with Template ID: $TEMPLATE_ID...${NC}"
+echo "${MSG}[INFO] Check status in Data Manager. App is ready once dataflow is complete.${NC}"
+sfdx analytics:app:create -t $TEMPLATE_ID
+
+# link folder to template
+FOLDER_ID="$(sfdx analytics:app:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f3)"
+echo "${MSG}[INFO] Linking App with Folder ID: $FOLDER_ID with Template ID: $TEMPLATE_ID...${NC}"
+sfdx analytics:template:update -t $TEMPLATE_ID -f $FOLDER_ID
+
+sfdx force:user:password:generate
+sfdx force:user:display >> loginInfo_$TIMESTAMP.txt
+
+# open org
+echo "${MSG}[INFO] Opening org...${NC}"
 sfdx force:org:open -p /analytics/wave/wave.apexp#home
