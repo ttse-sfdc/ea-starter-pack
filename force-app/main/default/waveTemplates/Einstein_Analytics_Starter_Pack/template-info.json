@@ -17,7 +17,7 @@
     }
   ],
   "releaseInfo" : {
-    "templateVersion" : "1.0",
+    "templateVersion" : "1.1",
     "notesFile" : "releaseNotes.html"
   },
   "folderDefinition" : "folder.json",
@@ -72,9 +72,10 @@
       "label" : "Einstein Analytics Starter Pack",
       "name" : "Einstein_Analytics_Starter_Pack",
       "condition" : "${Variables.Overrides.createDataflow}",
-      "file" : "dataflow/Einstein_Analytics_Starter_PackDataflow.json"
+      "file" : "dataflow/Einstein_Analytics_Starter_Pack.json"
     }
   ],
+  "recipes" : [ ],
   "datasetFiles" : [
     {
       "label" : "取引先(EA Starter Pack)",

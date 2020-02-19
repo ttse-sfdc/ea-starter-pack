@@ -1,7 +1,7 @@
 ##################################################################################################################
 # Script to spin up Scratch Org and initialize the org with data for Template being developed
 # Created by: Terrence Tse, ttse@salesforce.com
-# Last Updated: Feb 14, 2020
+# Last Updated: Feb 19, 2020
 ##################################################################################################################
 
 # constants
@@ -73,8 +73,26 @@ TEMPLATE_ID="$(sfdx analytics:template:list | grep $TEMPLATE_API_NAME | sed 's/ 
 
 # create MASTER app
 echo "${MSG}[INFO] Creating App with Template ID: $TEMPLATE_ID...${NC}"
-echo "${MSG}[INFO] Check status in Data Manager. App is ready once dataflow is complete.${NC}"
+echo "${MSG}[INFO] Please be patient, it may take up to 10m${NC}"
 sfdx analytics:app:create -t $TEMPLATE_ID
+
+# Check app creation status
+echo "${MSG}[INFO] Checking status of app creation...${NC}"
+app_create_status="$(sfdx analytics:app:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f4)"
+    
+if [ "$app_create_status" == "completedstatus" ];
+then
+    echo "${MSG}[INFO] App Created with status: ${app_create_status}"
+elif [ "$app_create_status" == "failedstatus" ];
+then
+    echo "${ERROR}[ERROR] App Creation Failed.${NC}"
+    # TODO: Do clean up and delete created org
+    exit 1
+else
+    echo "${ERROR}[ERROR] Unexpected Status: ${app_create_status}"
+    # TODO: Do clean up and delete created org
+    exit 1
+fi
 
 # link folder to template
 FOLDER_ID="$(sfdx analytics:app:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f3)"

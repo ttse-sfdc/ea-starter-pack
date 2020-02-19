@@ -5127,7 +5127,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5171,7 +5170,6 @@
         "label" : "ContactSummary",
         "numbers" : [ ],
         "query" : "q_con = load \"${App.Datasets.SFDC_EA_SP_Contact.FullyQualifiedName}\";\nq_con = group q_con by ('Id', 'AccountId', 'account.Name', 'Name', 'Title', 'owner.Name');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'WhoId';\nq_con_act = cogroup q_con by 'Id' left, q_act  by 'WhoId' ;\nq_con_act = foreach q_con_act generate q_con.'AccountId' as 'AccountId', q_con.'Id' as 'Id', q_con.'account.Name' as 'account.Name', q_con.'Name' as 'Name', q_con.'Title' as 'Title', q_con.'owner.Name' as 'owner.Name', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt';\nq_con_act = filter q_con_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_out = group q_con_act by all;\nq_out = foreach q_out generate unique('AccountId') as 'unique_AccountId', unique('Id') as 'unique_Id';\n",
-        "receiveFacet" : true,
         "selectMode" : "single",
         "strings" : [ ],
         "type" : "saql",
@@ -5223,7 +5221,6 @@
           "totalWonOppCnt"
         ],
         "query" : "q_acc = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc = group q_acc by ('Id');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'AccountId';\nq_acc_act = cogroup q_acc by 'Id' left, q_act  by 'AccountId';\nq_acc_act = foreach q_acc_act generate coalesce(unique(q_acc.'Id'), 0) as 'Id', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt', coalesce(sum(q_acc.'oppsum.Amount'), 0) as 'totalWonAmount', coalesce(sum(q_acc.'oppsum.WonCnt'), 0) as 'totalWonOppCnt';\nq_acc_act = filter q_acc_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_sum = group q_acc_act by all;\nq_sum = foreach q_sum generate sum('Id') as 'accSum', sum('totalActivityCnt') as 'totalActivityCnt', sum('totalWonAmount') as 'totalWonAmount', sum('totalWonOppCnt') as 'totalWonOppCnt';\n",
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "strings" : [ ],
         "type" : "saql",
@@ -5263,7 +5260,6 @@
         "label" : "SubGraphDim1",
         "numbers" : [ ],
         "query" : "q_acc = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc = group q_acc by ('Id');\nq_acc2 = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc2 = group q_acc by ('Id', 'SubGraphDim1');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'AccountId';\nq_acc_act = cogroup q_acc by 'Id' left, q_act  by 'AccountId' left, q_acc2 by 'Id';\nq_acc_act = foreach q_acc_act generate q_acc2.'SubGraphDim1' as 'SubGraphDim1', coalesce(unique(q_acc.'Id'), 0) as 'unique_Id', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt';\nq_acc_act = filter q_acc_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_out = group q_acc_act by ('SubGraphDim1');\nq_out = foreach q_out generate 'SubGraphDim1', sum('unique_Id') as 'unique_Id';\nq_out = order q_out by ('unique_Id' desc);\n",
-        "receiveFacet" : true,
         "selectMode" : "single",
         "strings" : [ ],
         "type" : "saql",
@@ -5326,7 +5322,6 @@
         "label" : "AccountListActivityCnt",
         "numbers" : [ ],
         "query" : "q_acc = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc = group q_acc by ('Id', 'Name', 'owner.Name');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'AccountId';\nq_acc_act = cogroup q_acc by 'Id' left, q_act  by 'AccountId';\nq_acc_act = foreach q_acc_act generate q_acc.'Id' as 'Id', q_acc.'Name' as 'Name', q_acc.'owner.Name' as 'owner.Name', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt', coalesce(sum(q_acc.'oppsum.Amount'), 0) as 'totalWonAmount', coalesce(sum(q_acc.'oppsum.WonCnt'), 0) as 'totalWonOppCnt';\nq_acc_act = filter q_acc_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_acc_act = order q_acc_act by ('totalActivityCnt' desc, 'totalWonAmount' desc);\nq_acc_act = limit q_acc_act 1000;\n",
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "start" : [ ],
         "strings" : [ ],
@@ -5375,7 +5370,6 @@
         "label" : "SubGraphDim2",
         "numbers" : [ ],
         "query" : "q_acc = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc = group q_acc by ('Id');\nq_acc2 = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc2 = group q_acc by ('Id', 'SubGraphDim2');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'AccountId';\nq_acc_act = cogroup q_acc by 'Id' left, q_act  by 'AccountId' left, q_acc2 by 'Id';\nq_acc_act = foreach q_acc_act generate q_acc2.'SubGraphDim2' as 'SubGraphDim2', coalesce(unique(q_acc.'Id'), 0) as 'unique_Id', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt';\nq_acc_act = filter q_acc_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_out = group q_acc_act by ('SubGraphDim2');\nq_out = foreach q_out generate 'SubGraphDim2', sum('unique_Id') as 'unique_Id';\nq_out = order q_out by ('unique_Id' desc);\n",
-        "receiveFacet" : true,
         "selectMode" : "single",
         "strings" : [ ],
         "type" : "saql",
@@ -5475,7 +5469,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5551,7 +5544,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5611,7 +5603,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5623,7 +5614,6 @@
         "label" : "ContactListActivityCnt",
         "numbers" : [ ],
         "query" : "q_acc = load \"${App.Datasets.SFDC_EA_SP_Contact.FullyQualifiedName}\";\nq_acc = group q_acc by ('Id', 'account.Name', 'Name', 'Title', 'owner.Name');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'WhoId';\nq_acc_act = cogroup q_acc by 'Id' left, q_act  by 'WhoId' ;\nq_acc_act = foreach q_acc_act generate q_acc.'Id' as 'Id', q_acc.'account.Name' as 'account.Name', q_acc.'Name' as 'Name', q_acc.'Title' as 'Title', q_acc.'owner.Name' as 'owner.Name', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt';\nq_acc_act = filter q_acc_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_acc_act = order q_acc_act by ('totalActivityCnt' desc);\nq_acc_act = limit q_acc_act 1000;\n",
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "strings" : [ ],
         "type" : "saql",
@@ -5684,7 +5674,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5712,7 +5701,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5757,7 +5745,6 @@
         "label" : "AccountMainGraph",
         "numbers" : [ ],
         "query" : "q_acc = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc = group q_acc by ('Id', '{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}');\nq_acc2 = load \"${App.Datasets.SFDC_EA_SP_Account.FullyQualifiedName}\";\nq_acc2 = group q_acc by ('{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}', 'CreatedDate_Year', 'CreatedDate_Month');\nq_act = load \"${App.Datasets.SFDC_EA_SP_Activity.FullyQualifiedName}\";\nq_act = filter q_act by 'IsClosed' == \"true\";\nq_act = group q_act by 'AccountId';\nq_acc_act = cogroup q_acc by 'Id' left, q_act  by 'AccountId' left, q_acc2 by 'Id';\nq_acc_act = foreach q_acc_act generate q_acc2.'{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}' as '{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}', q_acc2.'CreatedDate_Year' + \"~~~\" + q_acc2.'CreatedDate_Month' as 'CreatedDate_Year~~~CreatedDate_Month', coalesce(unique(q_acc.'Id'), 0) as 'unique_Id', coalesce(unique(q_act.'Id'), 0) as 'totalActivityCnt';\nq_acc_act = filter q_acc_act by 'totalActivityCnt' {{coalesce(cell(ActivityCntMeasureGroup.selection, 0, \"value\"), \"> -1\").asString()}};\nq_out = group q_acc_act by ('{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}', 'CreatedDate_Year~~~CreatedDate_Month');\nq_out = foreach q_out generate '{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}', 'CreatedDate_Year~~~CreatedDate_Month', sum(unique_Id) as 'AccountCnt', sum(sum(unique_Id)) over([-12..0] partition by 'all' order by 'CreatedDate_Year~~~CreatedDate_Month' asc) as 'GrandTotal';\nq_out = order q_out by ('{{cell(AccountGraphTypeGroup.selection, 0, \"value\").asString()}}', 'CreatedDate_Year~~~CreatedDate_Month' asc);\n",
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "strings" : [ ],
         "type" : "saql",
@@ -5906,7 +5893,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "type" : "aggregateflex",
         "useGlobal" : true,

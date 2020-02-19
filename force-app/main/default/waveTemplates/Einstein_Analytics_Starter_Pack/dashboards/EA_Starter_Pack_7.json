@@ -5743,7 +5743,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -5918,7 +5917,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -6093,7 +6091,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -6324,7 +6321,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -6388,7 +6384,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "start" : [ ],
         "type" : "aggregateflex",
@@ -6483,7 +6478,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -6541,7 +6535,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -6570,7 +6563,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "start" : [ ],
         "type" : "aggregateflex",
@@ -6707,7 +6699,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -6880,7 +6871,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -7035,7 +7025,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "multi",
         "type" : "aggregateflex",
         "useGlobal" : true,
@@ -7146,7 +7135,6 @@
           },
           "version" : -1.0
         },
-        "receiveFacet" : true,
         "selectMode" : "single",
         "type" : "aggregateflex",
         "useGlobal" : true,
