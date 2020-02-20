@@ -73,8 +73,8 @@ TEMPLATE_ID="$(sfdx analytics:template:list | grep $TEMPLATE_API_NAME | sed 's/ 
 
 # create MASTER app
 echo "${MSG}[INFO] Creating App with Template ID: $TEMPLATE_ID...${NC}"
-echo "${MSG}[INFO] Please be patient, it may take up to 10m${NC}"
-sfdx analytics:app:create -t $TEMPLATE_ID
+echo "${MSG}[INFO] Please be patient, it may take up to 15m${NC}"
+sfdx analytics:app:create -t $TEMPLATE_ID -w 15
 
 # Check app creation status
 echo "${MSG}[INFO] Checking status of app creation...${NC}"
