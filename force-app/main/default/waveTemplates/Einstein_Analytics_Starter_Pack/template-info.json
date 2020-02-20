@@ -69,8 +69,8 @@
   ],
   "eltDataflows" : [
     {
-      "label" : "Einstein Analytics Starter Pack",
-      "name" : "Einstein_Analytics_Starter_Pack",
+      "label" : "Dataflow",
+      "name" : "Dataflow",
       "condition" : "${Variables.Overrides.createDataflow}",
       "file" : "dataflow/Einstein_Analytics_Starter_Pack.json"
     }
