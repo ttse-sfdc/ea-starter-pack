@@ -14,6 +14,8 @@ package.xml
 # ignore Analytics metadata
 **/wave/*
 **/contentassets/*
+**/appMenus/*
+**/flexipages/*
 
 # ignore roles defined using csvs
 **/roles/*
