@@ -23,25 +23,25 @@ NC='\033[0m' # No Color
 # override org duration if argument exists
 if [ "$#" -eq  "0" ]
 then
-    echo "${MSG}[INFO] No arguments specified${NC}"
+    echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] No arguments specified${NC}"
 else
     ORG_DURATION=$1
 fi
 
 # temp directory for working files
-echo "${MSG}[INFO] Creating temp folder...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Creating temp folder...${NC}"
 mkdir sfdx_temp
 
 # create scratch org
-echo "${MSG}[INFO] Creating Scratch Org with Duration: $ORG_DURATION Day(s)...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Creating Scratch Org with Duration: $ORG_DURATION Day(s)...${NC}"
 sfdx force:org:create -f config/project-scratch-def.json -s -d $ORG_DURATION -w 60
 
 # push source
-echo "${MSG}[INFO] Pushing source...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Pushing source...${NC}"
 sfdx force:source:push -f
 
 # load demo/testing Data
-echo "${MSG}[INFO] Loading Demo/Testing Data...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Loading Demo/Testing Data...${NC}"
 #prep unique Username in User csv
 sed "s/{TIMESTAMP}/$TIMESTAMP/g" data/core/User.csv > sfdx_temp/User_Load.csv
 
@@ -65,24 +65,24 @@ sfdx force:data:record:create -s Lead -v "LastName='Sample Lead' Company='Sample
 sfdx force:data:record:create -s Contact -v "LastName='Sample Contact'"
 
 # clean up
-echo "${MSG}[INFO] Clean up...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Clean up...${NC}"
 rm -rf sfdx_temp
 
 # get template ID
 TEMPLATE_ID="$(sfdx analytics:template:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f2)"
 
 # create MASTER app
-echo "${MSG}[INFO] Creating App with Template ID: $TEMPLATE_ID...${NC}"
-echo "${MSG}[INFO] Please be patient, it may take up to 15m${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Creating App with Template ID: $TEMPLATE_ID...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Please be patient, it may take up to 15m${NC}"
 sfdx analytics:app:create -t $TEMPLATE_ID -w 15
 
 # Check app creation status
-echo "${MSG}[INFO] Checking status of app creation...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Checking status of app creation...${NC}"
 app_create_status="$(sfdx analytics:app:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f4)"
     
 if [ "$app_create_status" == "completedstatus" ];
 then
-    echo "${MSG}[INFO] App Created with status: ${app_create_status}"
+    echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] App Created with status: ${app_create_status}"
 elif [ "$app_create_status" == "failedstatus" ];
 then
     echo "${ERROR}[ERROR] App Creation Failed.${NC}"
@@ -96,12 +96,12 @@ fi
 
 # link folder to template
 FOLDER_ID="$(sfdx analytics:app:list | grep $TEMPLATE_API_NAME | sed 's/  /,/g' | cut -d ',' -f3)"
-echo "${MSG}[INFO] Linking App with Folder ID: $FOLDER_ID with Template ID: $TEMPLATE_ID...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Linking App with Folder ID: $FOLDER_ID with Template ID: $TEMPLATE_ID...${NC}"
 sfdx analytics:template:update -t $TEMPLATE_ID -f $FOLDER_ID
 
 sfdx force:user:password:generate
 sfdx force:user:display >> loginInfo_$TIMESTAMP.txt
 
 # open org
-echo "${MSG}[INFO] Opening org...${NC}"
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Opening org...${NC}"
 sfdx force:org:open -p /analytics/wave/wave.apexp#home
