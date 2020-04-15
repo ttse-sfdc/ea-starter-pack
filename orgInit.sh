@@ -40,6 +40,9 @@ sfdx force:org:create -f config/project-scratch-def.json -s -d $ORG_DURATION -w 
 echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Pushing source...${NC}"
 sfdx force:source:push -f
 
+echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Assigning AuditUserFields permissionset to admin user...${NC}"
+sfdx force:user:permset:assign --permsetname AuditUserFields 
+
 # load demo/testing Data
 echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Loading Demo/Testing Data...${NC}"
 #prep unique Username in User csv
@@ -74,7 +77,7 @@ TEMPLATE_ID="$(sfdx analytics:template:list | grep $TEMPLATE_API_NAME | sed 's/ 
 # create MASTER app
 echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Creating App with Template ID: $TEMPLATE_ID...${NC}"
 echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Please be patient, it may take up to 15m${NC}"
-sfdx analytics:app:create -t $TEMPLATE_ID -w 15
+sfdx analytics:app:create -t $TEMPLATE_ID -w 20
 
 # Check app creation status
 echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Checking status of app creation...${NC}"

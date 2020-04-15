@@ -1,18 +1,22 @@
 {
   "orgName": "EA Starter Pack SFDX",
   "description": "Scratch org for development of EA Starter Pack template",
-  "sourceOrg": "00D1I0000002AAzUAM",
+  "edition" : "Developer",
   "country": "US",
   "adminEmail": "ttse@salesforce.com",
   "features": [
-    "EinsteinAnalyticsPlus",
+    "DevelopmentWave",
     "SalesUser",
     "ServiceUser",
+    "ServiceCloud",
     "MarketingUser"
   ],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
+    },
+    "securitySettings": {
+      "enableAuditFieldsInactiveOwner": true
     }
   }
 }
