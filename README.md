@@ -4,7 +4,6 @@ This repo contains the source for the Einstein Analytics Start Pack template of 
 The structure of this repo and scripts can also be used as a template for Einstein Analytics Template development.
 
 ## Development Model
-
 Development and testing of the Einstein Analytics Assets should be done using scratch orgs with the repo acting as the source of truth. Once the code is finalized, it should be then either deployed into a Dev org for packaging or else where to be included as a greater deployment.
 
 ### Development Flow
@@ -15,11 +14,13 @@ Before trying the steps detailed here, you need the following:
 1. A working Salesforce Dev Hub org.
 2. Prior experience with Salesforce DX and Salesforce CLI.
 3. Basic understanding of Salesforce Einstein Analytics.
+4. Setup environment as below.
 
-## Initial Steps
+## Environment Setup
 1. Install Salesforce CLI from https://developer.salesforce.com/tools/sfdxcli. Follow the instructions on that page to download.
 2. Open a terminal and install the Analytics plugin by running the command `sfdx plugins:install @salesforce/analytics`
-
+3. Authorize a dev hub `sfdx force:auth:web:login -d -a [ALIAS]`
+    1. Login to a dev hub and you can close the window
 ## Usage
 1. Clone this repo: https://github.com/ttse-sfdc/ea-starter-pack.git
 2. Run `./orgInit.sh` to create a new Scratch Org with assets from repo. (Scratch Orgs are defaulted to **expire in 1 day**, override with argument `./orgInit.sh 7`)
