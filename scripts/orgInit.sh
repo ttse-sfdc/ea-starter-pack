@@ -103,7 +103,7 @@ echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Linking App with Folder ID: $FOL
 sfdx analytics:template:update -t $TEMPLATE_ID -f $FOLDER_ID
 
 sfdx force:user:password:generate
-sfdx force:user:display >> loginInfo_$TIMESTAMP.log
+sfdx force:user:display >> logs/loginInfo_$TIMESTAMP.log
 
 # open org
 echo "${MSG}$(date "+%Y-%m-%d %H:%M:%S")|[INFO] Opening org...${NC}"

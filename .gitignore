@@ -1,7 +1,7 @@
 **/.DS_Store
 .sfdx
 .vscode
-loginInfo*.txt
+**/logs
 package-lock.json
 **/force-app/main/default/contentassets
 **/force-app/main/default/roles
