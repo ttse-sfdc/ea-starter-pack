@@ -1,3 +1,4 @@
+#!/bin/zsh
 ##################################################################################################################
 # Script to spin up Scratch Org and initialize the org with data for Template being developed
 # Created by: Terrence Tse, ttse@salesforce.com
